@@ -19,6 +19,15 @@ def prompt_user_letter():
     return user_guess
 
 
+def validate_user_letter():
+    while True:
+        user_letter = prompt_user_letter()
+        if user_letter.isalpha() and len(user_letter) == 1:
+            return user_letter
+        else:
+            pass
+
+
 def start_game():
     errors = 0
     word_list = build_word_list()
@@ -35,7 +44,7 @@ def start_game():
         else:
             print(f"Word: {show_word}")
             print(f"Errors: {errors}")
-            user_guess = prompt_user_letter()
+            user_guess = validate_user_letter()
             if user_guess not in game_word:
                 print("Wrong!")
                 errors += 1

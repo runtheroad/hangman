@@ -22,13 +22,24 @@ def prompt_user_letter():
 def validate_user_letter():
     while True:
         user_letter = prompt_user_letter()
-        if user_letter.isalpha() and len(user_letter) == 1:
+        if ("A" <= user_letter <= "Z") and len(user_letter) == 1:
+            return user_letter
+        else:
+            pass
+
+
+def validate_repeat_entry(letters_entered):
+    while True:
+        user_letter = validate_user_letter()
+        if user_letter not in letters_entered:
+            letters_entered.add(user_letter)
             return user_letter
         else:
             pass
 
 
 def start_game():
+    letter_entered = set()
     errors = 0
     word_list = build_word_list()
     game_word = random.choice(word_list)
@@ -44,7 +55,7 @@ def start_game():
         else:
             print(f"Word: {show_word}")
             print(f"Errors: {errors}")
-            user_guess = validate_user_letter()
+            user_guess = validate_repeat_entry(letter_entered)
             if user_guess not in game_word:
                 print("Wrong!")
                 errors += 1
@@ -52,6 +63,8 @@ def start_game():
                 for index, char in enumerate(game_word):
                     if char == user_guess:
                         masked_word[index] = char
+    else:
+        print("You are dead")
 
 
 def main():

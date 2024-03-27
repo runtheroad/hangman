@@ -10,8 +10,14 @@ def start_new_game(prompt):
             pass
 
 
-def build_word_list():
-    return ['PYTHON', 'HANGMAN', 'PROGRAMMING', 'DEVELOPER', 'FUNCTION']
+def get_word_and_hint():
+    with open("hangman_words.txt", "r") as file:
+        lines = file.readlines()
+        random_line = random.choice(lines).strip()
+        word, hint = random_line.split("-")
+        word = word.strip().upper()
+        hint = hint.strip()
+    return word, hint
 
 
 def prompt_user_letter():
@@ -35,15 +41,16 @@ def validate_repeat_entry(letters_entered):
             letters_entered.add(user_letter)
             return user_letter
         else:
+            print(f"You have previously entered letter {user_letter}")
             pass
 
 
 def start_game():
     letter_entered = set()
     errors = 0
-    word_list = build_word_list()
-    game_word = random.choice(word_list)
+    game_word, game_hint = get_word_and_hint()
     print("Welcome to the game of HANGMAN, anon!")
+    print(f"\033[93mLet me give you a hint: {game_hint}\033[0m")
     masked_word = ["_"] * len(game_word)
 
     while errors <= 6:
@@ -65,6 +72,7 @@ def start_game():
                         masked_word[index] = char
     else:
         print("You are dead")
+        print(f"The word was {game_word}")
 
 
 def main():

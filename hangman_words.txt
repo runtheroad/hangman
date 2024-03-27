@@ -1,24 +1,20 @@
-bicycle
-witness
-printer
-network
-mystery
-raccoon
-trumpet
-library
-circuit
-zeppelin
-harvest
-spinach
-monster
-vulture
-kingdom
-journey
-penguin
-quarter
-gallery
-diamond
-
-
-
-
+bicycle - Pedal-powered transport
+witness - An observer of events
+printer - Ink meets paper here
+network - Connected virtual web
+mystery - Unsolved or unknown
+raccoon - Masked night bandit
+trumpet - Heralds and fanfares
+library - A silence filled with words
+circuit - Round trip for electrons
+zeppelin - Sky giant of the past
+harvest - Seasonal yield
+spinach - Leafy strength
+monster - Myth or nightmare
+vulture - Sky scavenger
+kingdom - Realm of rulers
+journey - An adventure or voyage
+penguin - Antarctic waddler
+quarter - Fraction or coin
+gallery - Art's home
+diamond - Hard and brilliant
